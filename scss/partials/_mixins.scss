@@ -1,0 +1,22 @@
+@mixin bead-colors {
+
+	@for $i from 1 through 5 {
+		&:nth-child( #{$i} ) {
+			background-color: 
+				rgb(237,121,109); // Old browsers
+				@include filter-gradient(#ed796d, #e73827, horizontal); // IE6-9 fallback on horizontal gradient
+				@include background-image(radial-gradient(center, ellipse cover, rgba(237,121,109,1) 0%,rgba(248,80,50,1) 54%,rgba(231,56,39,1) 100%));
+			border: 1px solid darken( rgba(231,56,39,0.8), 5% );
+		}
+	}
+
+	@for $i from 6 through 10 {
+		&:nth-child( #{$i} ) {
+			background-color: 
+				rgb(75,184,240); // Old browsers
+				@include filter-gradient(#4bb8f0, #26558b, horizontal); // IE6-9 fallback on horizontal gradient
+				@include background-image(radial-gradient(center, ellipse cover, rgba(75,184,240,1) 18%,rgba(58,139,194,1) 52%,rgba(38,85,139,1) 100%));
+			border: 1px solid darken( rgba(38,85,139,0.8), 5% );
+		}
+	}
+}
