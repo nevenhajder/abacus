@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Abacus</title>
+	<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P&text=0123456789' rel='stylesheet'>
 	<link href="css/screen.css" rel="stylesheet">
 </head>
 <body>
@@ -13,8 +15,10 @@
 			<h1>The JavaScript Abacus</h1>
 		</header>
 
-		<main>
+		<div class="main">
 			
+			<div class="support-left"></div>
+
 			<div class="row10000">
 				<div class="bead"></div>
 				<div class="bead"></div>
@@ -26,6 +30,7 @@
 				<div class="bead"></div>
 				<div class="bead"></div>
 				<div class="bead"></div>
+				<div class="rail"></div>
 			</div>
 
 			<div class="row1000">
@@ -39,6 +44,7 @@
 				<div class="bead"></div>
 				<div class="bead"></div>
 				<div class="bead"></div>
+				<div class="rail"></div>
 			</div>
 
 			<div class="row100">
@@ -52,6 +58,7 @@
 				<div class="bead"></div>
 				<div class="bead"></div>
 				<div class="bead"></div>
+				<div class="rail"></div>
 			</div>
 
 			<div class="row10">
@@ -65,6 +72,7 @@
 				<div class="bead"></div>
 				<div class="bead"></div>
 				<div class="bead"></div>
+				<div class="rail"></div>
 			</div>
 
 			<div class="row1">
@@ -78,16 +86,27 @@
 				<div class="bead"></div>
 				<div class="bead"></div>
 				<div class="bead"></div>
+				<div class="rail"></div>
 			</div>
 
-		</main>
+			<div class="support-right"></div>
 
-		<footer>
-			<p>I made this all by my lonesome.</p>
-		</footer>
+		</div>
+		
+		<div class="display-wrap">
+			<input type="text" name="numDisplay" id="numDisplay" value="0"> <br>
+			<div class="tool-tip">
+				<p>Type in a number and watch the abacus go!</p>
+			</div>
+		</div>
+
+		<div class="my-root-footer"></div>
 	</div>
 
+	<footer class="my-footer">
+			<p>I made this all by my lonesome.</p>
+	</footer>
 
-	<script src="abacus.js"></script>
+	<script src="js/abacus.js"></script>
 </body>
 </html>
