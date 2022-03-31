@@ -1,0 +1,20 @@
+{
+  "name": "abacus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run serve & npm run sass & npm run typescript",
+    "sass": "npx sass styles:styles --watch",
+    "typescript": "npx tsc --watch",
+    "serve": "npx serve ."
+  },
+  "keywords": [],
+  "author": "Neven Hajder",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.49.8",
+    "typescript": "^4.5.4"
+  }
+}

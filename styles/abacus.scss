@@ -1,0 +1,188 @@
+// Variables
+$bead-diameter: 55px;
+$warning-color: rgb(255, 114, 118);
+
+
+// Mixins
+@mixin bead-colors {
+
+    @for $i from 1 through 5 {
+        &:nth-of-type( #{$i} ) {
+            background-color:
+                rgb(237,121,109); // Old browsers
+                background-image: radial-gradient(center, ellipse cover, rgba(237,121,109,1) 0%,rgba(248,80,50,1) 54%,rgba(231,56,39,1) 100%);
+            border: 1px solid darken( rgba(231,56,39,0.8), 5% );
+        }
+    }
+
+    @for $i from 6 through 10 {
+        &:nth-of-type( #{$i} ) {
+            background-color:
+                rgb(75,184,240); // Old browsers
+                background-image: radial-gradient(center, ellipse cover, rgba(75,184,240,1) 18%,rgba(58,139,194,1) 52%,rgba(38,85,139,1) 100%);
+            border: 1px solid darken( rgba(38,85,139,0.8), 5% );
+        }
+    }
+}
+
+// General Styles
+.abacus-wrap {
+    margin: 32px auto;
+    display: block;
+    max-width: 900px;
+    position: relative;
+    padding-top: 20px;
+}
+
+.abacus-heading {
+    margin: 0.75em auto;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: em(36px);
+}
+
+.row1, .row10, .row100, .row1000, .row10000 {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    margin-bottom: 30px;
+
+    // Horizontal rail
+    &::before {
+        top: 50%;
+        width: 100%;
+        height: 4px;
+        content: '';
+        z-index: -1;
+        position: absolute;
+        transform: translateY(-50%);
+        background-color:
+            rgb(240,183,161); // Old browsers
+            background-image: linear-gradient(top, rgba(240,183,161,1) 0%,rgba(140,51,16,1) 50%,rgba(117,34,1,1) 51%,rgba(191,110,78,1) 100%);
+    }
+}
+
+.display-wrap {
+    width: 65%;
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+
+/*
+    Styles for Abacus Components
+*/
+.bead {
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin-right: 2px;
+    border-radius: 50%;
+
+    @include bead-colors;
+
+    -webkit-transition: -webkit-transform 750ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    transition: transform 750ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+
+    /* Remove right margin from last bead */
+    &:nth-type-of(10) {
+        margin-right: 0;
+    }
+}
+
+.bead:focus {
+    outline: none;
+}
+
+%support {
+    top: 0;
+    width: 20px;
+    height: 400px;
+    position: absolute;
+    background: url("../images/purty_wood.png") repeat-y;
+
+    border-radius: 5px;
+}
+
+.support-left {
+    @extend %support;
+    left: -20px;
+}
+
+.support-right {
+    @extend %support;
+    right: -19px;
+}
+
+
+/*
+    Number Display Styles
+*/
+/* Remove spinners from number input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Specifically for Firefox */
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.display-wrap button:active,
+.display-wrap button:focus {
+    outline: none;
+}
+
+/* Overwrite Bootstrap styles and customize */
+.numDisplay {
+    text-align: center;
+    font-size: 24px !important;
+    padding: 5px 10px !important;
+}
+
+
+/*
+    Media Queries
+*/
+@media (min-width:320px) {
+    .bead {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .rail {
+        top: 11px;
+    }
+}
+
+@media (min-width:600px) {
+    .bead {
+        width: 40px;
+        height: 40px;
+    }
+
+    .rail {
+        top: 18px;
+    }
+
+    .row1, .row10, .row100, .row1000, .row10000 {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width:768px) {
+    .abacus-heading {
+        margin: 0.75em auto 0;
+    }
+
+    .bead {
+        width: 55px;
+        height: 55px;
+    }
+
+    .rail {
+        top: 26px;
+    }
+}
